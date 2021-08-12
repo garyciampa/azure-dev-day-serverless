@@ -29,7 +29,7 @@ NOTE: The region location of the resource group may be different than the physic
 
 ## Create an Azure Resource Group 
 
-To create the Resource Group use the following command line:
+[Create Azure Resource Group](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create) use the following command line:
 
 ````shell
   az group create --name $RESOURCE_GROUP --location $REGION
@@ -96,7 +96,7 @@ Placeholder for content and and [links](..)
 
 ## Clean up resources 
 
-Do NOT forget to remove the resources once you are done running the example.
+Do NOT forget to remove the resources once you are done running the example, [Azure Group Delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete)
 
 ```shell
  az group delete --name $RESOURCE_GROUP --yes
