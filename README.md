@@ -2,8 +2,6 @@
 
 ## Prerequisites 
 
-
-
 ## Set Azure subscription and properties subscription
 
 To setup the environment, recommendation is to set properties for variable substituion, simplifies changes and facilitates automation. Update properties as desired.
@@ -12,6 +10,7 @@ To setup the environment, recommendation is to set properties for variable subst
   export RESOURCE_GROUP=demo-azure-dev-day
   export REGION=eastus2
 ```
+
 NOTE: The region location of the resource group may be different than the physical azure resources 
 
 ## Create an Azure Resource Group 
