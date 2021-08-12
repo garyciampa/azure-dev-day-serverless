@@ -98,7 +98,7 @@ Placeholder for content and and [links](..)
 
 ## Clean up resources 
 
-Do NOT forget to remove the resources once you are done running the example, [Azure Group Delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete)
+Do NOT forget to remove the resources once you've completed the exercise, [Azure Group Delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete)
 
 ```shell
  az group delete --name $RESOURCE_GROUP --yes
