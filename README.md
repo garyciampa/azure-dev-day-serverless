@@ -2,7 +2,20 @@
 
 ## Prerequisites 
 
+This example assumes the user already has an Azure subscription with contributor access. Additionally, Azure CLI has been installed, [How to install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+
 ## Set Azure subscription and properties subscription
+
+Initial login and subscription setup is a required prerequiit 
+
+````shell
+export SUBSCRIPTION_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
+
+az login 
+az account set --subscription $SUBSCRIPTION_ID
+````
+
+## Set variable properties for substitution 
 
 ````shell
   export RESOURCE_GROUP=demo-azure-dev-day
@@ -49,8 +62,6 @@ To create the SQL database use the following command lines:
 ### Create Cosmos DB Container 
 
 ````shell
- 
-
   az cosmosdb sql container create \
     --resource-group $RESOURCE_GROUP \
     --account-name $COSMOSDB_ACCOUNT_NAME \
@@ -61,8 +72,26 @@ To create the SQL database use the following command lines:
  
 ## Create Function App 
 
+Placeholder for content and and [links](..)
+
+````shell
+
+````
+
 
 ## Create Event Grid 
+Placeholder for content and and [links](..)
+
+````shell
+
+````
+
+##  Test and view results 
+Placeholder for content and and [links](..)
+
+````shell
+
+````
 
 
 ## Clean up resources 
