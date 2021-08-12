@@ -37,6 +37,8 @@ NOTE: The region location of the resource group may be different than the physic
   
 ## Create Cosmos DB resources, to include Cosmos DB, Database and Container 
 
+Creating a Cosmos DB may be accomplished via the [Azure Portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-cosmosdb-resources-portal), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/cosmos-db/cli-samples).
+
 ### Create Cosmos DB service
 
 To create the Azure Cosmos DB account use the following command lines:
