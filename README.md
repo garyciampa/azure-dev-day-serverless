@@ -4,9 +4,9 @@
 
 This example assumes the user already has an Azure subscription with contributor access. Additionally, Azure CLI has been installed, [How to install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-## Set Azure subscription and properties subscription
+## Set Azure subscription and properties
 
-Initial login and subscription setup is a required prerequiit 
+Initial login and subscription setup is a required prerequisite
 
 ````shell
 export SUBSCRIPTION_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
