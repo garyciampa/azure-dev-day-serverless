@@ -82,8 +82,10 @@ To create the SQL database use the following command lines:
  
 ## Create Function App 
 
-[Function Apps](./media/Function-Apps.svg)
 Placeholder for content and and [links](...)
+
+![Link to Fucntion Apps SVG](media/Function-Apps.svg "Azure Functions")
+
 
 ````shell
 
