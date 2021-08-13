@@ -6,6 +6,7 @@
 - [Requirements](#requirements)
 - [Step 1: Setup Azure subscription and properties](Step-1-Setup-Azure-subscription-and-properties)
 - [Step 2: Create an Azure Resource Group ](Step-2-Create-an-Azure-Resource-Group)
+- [Step 3} 
 
 <!-- TOC -->
 
@@ -43,7 +44,7 @@ NOTE: The region location of the resource group may be different than the physic
   az group create --name $RESOURCE_GROUP --location $REGION
 ````
   
-## Create Cosmos DB resources, to include Cosmos DB, Database and Container 
+## Step 3: Create Cosmos DB resources, to include Cosmos DB, Database and Container 
 
 Creating a Cosmos DB may be accomplished via the [Azure Portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-cosmosdb-resources-portal), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/cosmos-db/cli-samples).
 
@@ -80,11 +81,14 @@ To create the SQL database use the following command lines:
     --partition-key-path '/id'
 ````
  
-## Create Function App 
+## Step 4: Create Function App 
 
 Placeholder for content and and [links](...)
 
-![Link to Fucntion Apps SVG](media/Function-Apps.svg "Azure Functions")
+- Azure Functions
+<img src="media/Function-Apps.svg" width=100 height=100px>
+
+
 
 
 ````shell
@@ -92,14 +96,14 @@ Placeholder for content and and [links](...)
 ````
 
 
-## Create Event Grid 
+## Step 5: Create Event Grid 
 Placeholder for content and and [links](..)
 
 ````shell
 
 ````
 
-##  Test and view results 
+##  Step 6: Test and view results 
 Placeholder for content and and [links](..)
 
 ````shell
@@ -107,7 +111,7 @@ Placeholder for content and and [links](..)
 ````
 
 
-## Clean up resources 
+## Step 7: Clean up resources 
 
 Do NOT forget to remove the resources once you've completed the exercise, [Azure Group Delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete)
 
