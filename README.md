@@ -6,7 +6,12 @@
 - [Requirements](#requirements)
 - [Step 1: Setup Azure subscription and properties](Step-1-Setup-Azure-subscription-and-properties)
 - [Step 2: Create an Azure Resource Group ](Step-2-Create-an-Azure-Resource-Group)
-- [Step 3} 
+- [## Step 3: Create Cosmos DB resources](Step-3-Create-Cosmos-DB-resources)
+- [Step 4: Create Function App](Step-4-Create-Function-App)
+- [Step 5: Create Event Grid](Step-5-Create-Event-Grid)
+- [Step 6: Test and view results](Step-6-Test-and-view-results)
+- [Step 7: Clean up resources](Step-7-Clean-up-resources)
+
 
 <!-- TOC -->
 
@@ -44,7 +49,7 @@ NOTE: The region location of the resource group may be different than the physic
   az group create --name $RESOURCE_GROUP --location $REGION
 ````
   
-## Step 3: Create Cosmos DB resources, to include Cosmos DB, Database and Container 
+## Step 3: Create Cosmos DB resources
 
 Creating a Cosmos DB may be accomplished via the [Azure Portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-cosmosdb-resources-portal), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/cosmos-db/cli-samples).
 
@@ -103,13 +108,12 @@ Placeholder for content and and [links](..)
 
 ````
 
-##  Step 6: Test and view results 
+## Step 6: Test and view results 
 Placeholder for content and and [links](..)
 
 ````shell
 
 ````
-
 
 ## Step 7: Clean up resources 
 
