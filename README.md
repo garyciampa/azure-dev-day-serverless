@@ -1,10 +1,19 @@
 # Azure Dev Day - Serverless Exercise 
 
-## Prerequisites 
+<!-- TOC -->
+**Overview**: 
+
+- [Requirements](#requirements)
+- [Step 1: Setup Azure subscription and properties](Step-1-Setup-Azure-subscription-and-properties)
+- [Step 2: Create an Azure Resource Group ](Step-2-Create-an-Azure-Resource-Group)
+
+<!-- TOC -->
+
+## Requirements
 
 This example assumes the user already has an Azure subscription with contributor access. Additionally, Azure CLI has been installed, [How to install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-## Set Azure subscription and properties
+## Step 1: Setup Azure subscription and properties
 
 Initial login and subscription setup is a required prerequisite
 
@@ -14,7 +23,6 @@ export SUBSCRIPTION_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 az login 
 az account set --subscription $SUBSCRIPTION_ID
 ````
-
 ## Set variable properties for substitution 
 
 ````shell
@@ -27,7 +35,7 @@ az account set --subscription $SUBSCRIPTION_ID
 
 NOTE: The region location of the resource group may be different than the physical azure resources 
 
-## Create an Azure Resource Group 
+## Step 2: Create an Azure Resource Group 
 
 [Create Azure Resource Group](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create) use the following command line:
 
@@ -74,7 +82,8 @@ To create the SQL database use the following command lines:
  
 ## Create Function App 
 
-Placeholder for content and and [links](..)
+[Function Apps](./media/Function-Apps.svg)
+Placeholder for content and and [links](...)
 
 ````shell
 
