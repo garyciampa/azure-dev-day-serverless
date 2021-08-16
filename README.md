@@ -72,7 +72,8 @@ az cosmosdb create --name $COSMOSDB_ACCOUNT_NAME --resource-group $RESOURCE_GROU
 ## Step 4: Create Function App  
 <img src="media/Function-Apps.svg" width=75 height=75px>
 
-Create storage account and consumption plan function app service 
+Creating a storage account and function app via the [Azure Portal](https://portal.azure.com), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-serverless).
+
 
 ````shell 
 # Create storage account and function app service 
