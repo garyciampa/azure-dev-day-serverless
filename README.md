@@ -31,9 +31,10 @@ az account set --subscription $SUBSCRIPTION_ID
 ````
 ## Set variable properties for substitution 
 
+
 ````shell
-  export RESOURCE_GROUP=demo-azure-dev-day
-  export REGION=eastus2
+  export RESOURCE_GROUP=<business-unit-demo-azure-dev-day>
+  export REGION=<eastus2>
   export COSMOSDB_ACCOUNT_NAME=cosmosdb-$RANDOM
   export COSMOSDB_SQL_CONTAINER=sql-container-$RANDOM
   export COSMOSDB_SQL_DATABASE=sql-database-$RANDOM
