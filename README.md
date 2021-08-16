@@ -5,8 +5,8 @@
 
 - [Requirements](#requirements)
 - [Step 1: Setup Azure subscription and properties](#step-1-setup-azure-subscription-and-properties)
-- [Step 2: Create an Azure Resource Group ](step-2-create-an-azure-rResource-group)
-- [## Step 3: Create Cosmos DB resources](step-3-create-cosmos-db-resources)
+- [Step 2: Create an Azure Resource Group ](step-2-create-an-azure-resource-group)
+- [Step 3: Create Cosmos DB resources](step-3-create-cosmos-db-resources)
 - [Step 4: Create Function App](step-4-create-function-app)
 - [Step 5: Create Event Grid](step-5-create-event-grid)
 - [Step 6: Test and view results](step-6-test-and-view-results)
