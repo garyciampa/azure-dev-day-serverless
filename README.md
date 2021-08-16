@@ -4,8 +4,8 @@
 **Overview**: 
 
 - [Requirements](#requirements)
-- [Step 1: Setup Azure subscription and properties](Step-1-Setup-Azure-subscription-and-properties)
-- [Step 2: Create an Azure Resource Group ](Step-2-Create-an-Azure-Resource-Group)
+- [Step 1: Setup Azure subscription and properties](#step-1-setup-azure-subscription-and-properties)
+- [Step 2: Create an Azure Resource Group ](step-2-create-an-azure-rResource-rroup)
 - [## Step 3: Create Cosmos DB resources](Step-3-Create-Cosmos-DB-resources)
 - [Step 4: Create Function App](Step-4-Create-Function-App)
 - [Step 5: Create Event Grid](Step-5-Create-Event-Grid)
@@ -14,6 +14,7 @@
 
 
 <!-- TOC -->
+
 
 ## Requirements
 
@@ -33,11 +34,11 @@ az account set --subscription $SUBSCRIPTION_ID
 
 
 ````shell
-  export RESOURCE_GROUP=<business-unit-demo-azure-dev-day>
-  export REGION=<eastus2>
-  export COSMOSDB_ACCOUNT_NAME=cosmosdb-$RANDOM
-  export COSMOSDB_SQL_CONTAINER=sql-container-$RANDOM
-  export COSMOSDB_SQL_DATABASE=sql-database-$RANDOM
+export RESOURCE_GROUP=<business-unit-demo-azure-dev-day>
+export REGION=<eastus2>
+export COSMOSDB_ACCOUNT_NAME=cosmosdb-$RANDOM
+export COSMOSDB_SQL_CONTAINER=sql-container-$RANDOM
+export COSMOSDB_SQL_DATABASE=sql-database-$RANDOM
 ````
 
 NOTE: The region location of the resource group may be different than the physical azure resources 
@@ -47,7 +48,7 @@ NOTE: The region location of the resource group may be different than the physic
 [Create Azure Resource Group](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create) use the following command line:
 
 ````shell
-  az group create --name $RESOURCE_GROUP --location $REGION
+az group create --name $RESOURCE_GROUP --location $REGION
 ````
   
 ## Step 3: Create Cosmos DB resources
@@ -59,32 +60,7 @@ Creating a Cosmos DB may be accomplished via the [Azure Portal](https://docs.mic
 To create the Azure Cosmos DB account use the following command lines:
 
 ````shell
-  az cosmosdb create \
-    --name $COSMOSDB_ACCOUNT_NAME \
-    --resource-group $RESOURCE_GROUP
-````
-
-### Create Cosmos DB Database 
-
-To create the SQL database use the following command lines:
-
-````shell
-  az cosmosdb sql database create \
-    --resource-group $RESOURCE_GROUP \
-    --account-name $COSMOSDB_ACCOUNT_NAME \
-    --name $COSMOSDB_SQL_DATABASE
-````
-
-
-### Create Cosmos DB Container 
-
-````shell
-  az cosmosdb sql container create \
-    --resource-group $RESOURCE_GROUP \
-    --account-name $COSMOSDB_ACCOUNT_NAME \
-    --database-name $COSMOSDB_SQL_DATABASE \
-    --name $COSMOSDB_SQL_CONTAINER \
-    --partition-key-path '/id'
+az cosmosdb create --name $COSMOSDB_ACCOUNT_NAME --resource-group $RESOURCE_GROUP
 ````
  
 ## Step 4: Create Function App 
