@@ -34,11 +34,17 @@ az account set --subscription $SUBSCRIPTION_ID
 
 
 ````shell
-export RESOURCE_GROUP=<business-unit-demo-azure-dev-day>
+export TAG_PREFIX=<business-unit>
+
+export RESOURCE_GROUP=<$TAG_PREFIX-demo-azure-dev-day>
 export REGION=<eastus2>
+
 export COSMOSDB_ACCOUNT_NAME=cosmosdb-$RANDOM
 export COSMOSDB_SQL_CONTAINER=sql-container-$RANDOM
 export COSMOSDB_SQL_DATABASE=sql-database-$RANDOM
+
+export STORAGE_ACCOUNT_NAME=stg${TAG_PREFIX}${RANDOM}
+export FUNCTION_APPNAME=${TAG_PREFIX}-functionapp-${RANDOM}
 ````
 
 NOTE: The region location of the resource group may be different than the physical azure resources 
@@ -48,7 +54,7 @@ NOTE: The region location of the resource group may be different than the physic
 [Create Azure Resource Group](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_create) use the following command line:
 
 ````shell
-az group create --name $RESOURCE_GROUP --location $REGION
+az group create --name $RESOURCE_GROUP --location $REGION --tags $TAG_PREFIX 
 ````
   
 ## Step 3: Create Cosmos DB resources
@@ -60,23 +66,22 @@ Creating a Cosmos DB may be accomplished via the [Azure Portal](https://docs.mic
 To create the Azure Cosmos DB account use the following command lines:
 
 ````shell
-az cosmosdb create --name $COSMOSDB_ACCOUNT_NAME --resource-group $RESOURCE_GROUP
+az cosmosdb create --name $COSMOSDB_ACCOUNT_NAME --resource-group $RESOURCE_GROUP --tags $TAG_PREFIX 
 ````
  
-## Step 4: Create Function App 
+## Step 4: Create Function App  
+<img src="media/Function-Apps.svg" width=75 height=75px>
 
-Placeholder for content and and [links](...)
+Create storage account and consumption plan function app service 
 
-- Azure Functions
-<img src="media/Function-Apps.svg" width=100 height=100px>
+````shell 
+# Create storage account and function app service 
+az storage account create --name $STORAGE_ACCOUNT_NAME --location $REGION --resource-group $RESOURCE_GROUP --sku Standard_LRS --tags $TAG_PREFIX 
 
-
-
-
-````shell
-
+az functionapp create --name $FUNCTION_APPNAME  --storage-account $STORAGE_ACCOUNT_NAME \
+	--consumption-plan-location $REGION \
+	--resource-group $RESOURCE_GROUP --functions-version 2 --tags $TAG_PREFIX
 ````
-
 
 ## Step 5: Create Event Grid 
 Placeholder for content and and [links](..)
