@@ -113,10 +113,9 @@ Navigate the the resource group created previously, select the function app, and
 - Template details, New Function: **EventGridTriggerFunction** 
 - Create
 
+Navigate within the function app, verify function is **Enabled** 
 
-Navigate within the function app and function to verify function is **Enabled** 
-
- <img src="media/eventgrid.trigger.function.png"
+ <img src="media/eventgrid.trigger.function.png">
 
 ### Step 5C Create event grid topic and function to process blob storage events 
 
@@ -129,9 +128,9 @@ Navigate to the resource group created previoulsy, select the **event grid stora
 - System Topic Name: **BlobEventGridToFunctionAppTopic**
 - Event Types Filter: **default 2 selected, or as desired** 
 - Endpoint Type: **Azure Function** 
-- Endpoint: **select endpoint** (navigate and select the desired FunctionApp and Function 
+- Endpoint: **select endpoint** (navigate and select the desired FunctionApp and Function> 
 
-<img src="media/eventgrid.trigger.function.png"> 
+<img src="media/eventgrid.function.endpoint.png"> 
 
 
 ## Step 6: Test and view results 
