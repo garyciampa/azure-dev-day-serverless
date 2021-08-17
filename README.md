@@ -9,8 +9,9 @@
 - [Step 3: Create Cosmos DB resources](#step-3-create-cosmos-db-resources)
 - [Step 4: Create Function App](#step-4-create-function-app)
 - [Step 5: Create Event Grid](#step-5-create-event-grid)
-- [Step 6: Test and view results](#step-6-test-and-view-results)
-- [Step 7: Clean up resources](#step-7-clean-up-resources)
+- [Step 6: Event Grid Blob Storage Test](#step-6-event-grid-blob-storage-test)
+- [Step 7: Azure Cosmos DB Output Binding](#step-7-azure-cosmos-db-output-binding)
+- [Step 8: Clean up resources](#step-8-clean-up-resources)
 
 <!-- TOC -->
 
@@ -117,9 +118,9 @@ Navigate within the function app, verify function is **Enabled**
 
  <img src="media/eventgrid.trigger.function.png">
 
-### Step 5C Create event grid topic and function to process blob storage events 
+### Step 5C: Create event grid topic and function to process blob storage events 
 
-Navigate to the resource group created previoulsy, select the **event grid storage sccount**, **Events** <img src="media/rg.select.events.png" > icon to create an event grid topic and link to the function app. 
+Navigate to the resource group created previously, select the **event grid storage account**, **Events** <img src="media/rg.select.events.png" > icon to create an event grid topic and link to the function app. 
 
 - Verify the **Topic Type** and **Source Resource* match the **stgevent....** resource created previously 
 - Select:  **Event Subscription** 
@@ -133,14 +134,62 @@ Navigate to the resource group created previoulsy, select the **event grid stora
 <img src="media/eventgrid.function.endpoint.png"> 
 
 
-## Step 6: Test and view results 
+**EventGridTriggerFunction\run.csx** will be created with the following properties: 
+
+````shell
+#r "Microsoft.Azure.EventGrid"
+using Microsoft.Azure.EventGrid.Models;
+
+public static void Run(EventGridEvent eventGridEvent, ILogger log)
+{
+    log.LogInformation(eventGridEvent.Data.ToString());
+}
+````
+
+
+## Step 6: Event Grid Blob Storage Test
+
+Current status is the following have been created and ready for testing: 
+
+- Azure Blob storage account 
+- Event Grid Topic for stoage account changes  
+- Function App to receive and log events 
+
+Next step is to create an blob container, upload files and verify the event grid triggers in the function app 
+
+- Navigate to the storage accouint
+- Select: **Blob containers**, **+ Add Container**
+- Name: **container1**, 
+- Access level: **default** or **as desired** 
+- Create 
+
+Open a second browser sessions in the Azure Portal:
+- Session 1: Navigate to the newly created **Blob container1**
+- Session 2: Navigate to the Function App, **EventGridTriggerFunction**, and open the **Logs** menu, to view the function application log 
+- **Blob container**, select **Upload**, upload a favorite file, image or related media:
+
+<img src="media/azure.blob.container.upload.png"> 
+
+-  **EventGridTriggerFunction**, observe for each image, the event grid will trigger an fuction instance, log will reflect the event grid trigger content: 
+
+<img src="media/function.app.eventgrid.trigger.png"> 
+
+
+## Step 7: Azure Cosmos DB Output Binding
+
+Current status is the following have been created and ready for testing: 
+
+- Azure Blob storage account 
+- Event Grid Topic for stoage account changes  
+- Function App to receive and log event
+
 Placeholder for content and and [links](..)
 
 ````shell
 
 ````
 
-## Step 7: Clean up resources 
+## Step 8: Clean up resources 
 
 Do NOT forget to remove the resources once you've completed the exercise, [Azure Group Delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete)
 
