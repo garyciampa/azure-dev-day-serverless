@@ -61,19 +61,18 @@ az group create --name $RESOURCE_GROUP --location $REGION --tags $TAG_PREFIX
 
 Creating a Cosmos DB may be accomplished via the [Azure Portal](https://docs.microsoft.com/en-us/azure/cosmos-db/create-cosmosdb-resources-portal), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/cosmos-db/cli-samples).
 
-### Create Cosmos DB service
-
-To create the Azure Cosmos DB account use the following command lines:
-
 ````shell
 az cosmosdb create --name $COSMOSDB_ACCOUNT_NAME --resource-group $RESOURCE_GROUP --tags $TAG_PREFIX 
 ````
  
+ 
 ## Step 4: Create Function App  
 <img src="media/Function-Apps.svg" width=75 height=75px>
 
-Creating a storage account and function app via the [Azure Portal](https://portal.azure.com), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-serverless).
+This step combines elements of the Azure CLI and Azure portal to demonstrate the complimentary features. 
 
+### Step 4A: Create Storage account and Function App service 
+Creating a storage account and function app via the [Azure Portal](https://portal.azure.com), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-serverless).
 
 ````shell 
 # Create storage account and function app service 
@@ -84,12 +83,20 @@ az functionapp create --name $FUNCTION_APPNAME  --storage-account $STORAGE_ACCOU
 	--resource-group $RESOURCE_GROUP --functions-version 2 --tags $TAG_PREFIX
 ````
 
+### Step 4B: Create HTTP Trigger 
+
+Navigate to the Azure portal, and the resource group created previously. Select the <tag-prefix-functionapp-nnnn> "Function App", navigate the file tree and selct the 
+<img src="media/functionselector.png" width=75 height=50> icon, and create a new "HTTP Trigger" Function, with a meaningful name, ie: "HelloHttpFunction". 
+
+<img src="media/createfunctionapp.http.png" width=200 height=250px>
+
 ## Step 5: Create Event Grid 
 Placeholder for content and and [links](..)
 
 ````shell
 
 ````
+
 
 ## Step 6: Test and view results 
 Placeholder for content and and [links](..)
