@@ -211,6 +211,19 @@ public static void Run(EventGridEvent eventGridEvent,  out  object outputDocumen
 
 ````
 
+### Step 7: Azure Cosmos DB Output Binding Test 
+
+The next step is repeat of [Step 6](#step-6-event-grid-blob-storage-test) with an additional verification. Set up browswers as described previously, and upload a desired file into the **container 1**. 
+
+- Verify the **EventGridTriggerFunction** triggers successfully via the **Logs** 
+- Naviate to the Cosmos DB **Data Explorer**, select the **EventGridBlobStorageDb**, **Items** document. 
+- Verify the corresponding event id from the event grid trigger function 
+
+<img src="media/cosmos.container.event.action.png"> 
+
+The previous example demonstrates the relationship and services to connect Azure Event Grids, to Azure Functions, to Azure Cosmos DB to complete a modern application architecture strategy in an **Azure Server-less architecture** 
+
+
 ## Step 8: Clean up resources 
 
 Do NOT forget to remove the resources once you've completed the exercise, [Azure Group Delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az_group_delete)
