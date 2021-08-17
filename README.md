@@ -15,6 +15,14 @@
 
 <!-- TOC -->
 
+## Objectives 
+
+Azure Serverless capabilites provide a wide array of capabilites to drive modern application architectures with zero-infrastructure and capital evestments. This lab demonstrates Azure PaaS offerings including 
+
+- Azure Event Grids
+- Azure Function Apps 
+- Azure Cosmos DB 
+- Azure infrastructure services to include resource groups, storage accounts and familiarization with Azure CLI services
 
 ## Requirements
 
