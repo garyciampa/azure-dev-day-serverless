@@ -18,7 +18,10 @@
 
 ## Requirements
 
-This example assumes the user already has an Azure subscription with contributor access. Additionally, Azure CLI has been installed, [How to install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+This example assumes the user already has an Azure subscription with contributor access. Additionally, the following services will be required during the lab: 
+
+- Azure CLI, [How to install Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+- Git Bash, [Git Download for Windows](https://gitforwindows.org/)
 
 ## Step 1: Setup Azure subscription and properties
 
