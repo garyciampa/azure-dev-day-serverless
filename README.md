@@ -12,7 +12,6 @@
 - [Step 6: Test and view results](#step-6-test-and-view-results)
 - [Step 7: Clean up resources](#step-7-clean-up-resources)
 
-
 <!-- TOC -->
 
 
@@ -46,7 +45,9 @@ export COSMOSDB_ACCOUNT_NAME=cosmosdb-$RANDOM
 export COSMOSDB_SQL_CONTAINER=sql-container-$RANDOM
 export COSMOSDB_SQL_DATABASE=sql-database-$RANDOM
 
-export STORAGE_ACCOUNT_NAME=stg${TAG_PREFIX}${RANDOM}
+export STORAGE_ACCOUNT_FUNC=stgfunc${TAG_PREFIX}${RANDOM}
+export STORAGE_ACCOUNT_EVENT=stgevent${TAG_PREFIX}${RANDOM}
+
 export FUNCTION_APPNAME=${TAG_PREFIX}-functionapp-${RANDOM}
 ````
 
@@ -72,40 +73,65 @@ az cosmosdb create --name $COSMOSDB_ACCOUNT_NAME --resource-group $RESOURCE_GROU
 ## Step 4: Create Function App  
 <img src="media/Function-Apps.svg" width=75 height=75px>
 
-This step combines elements of the Azure CLI and Azure portal to demonstrate the complimentary features. 
 
-### Step 4A: Create Storage account and Function App service 
+### Step 4A: Create storage account function app
+
 Creating a storage account and function app via the [Azure Portal](https://portal.azure.com), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-serverless).
 
 ````shell 
 # Create storage account and function app service 
-az storage account create --name $STORAGE_ACCOUNT_NAME --location $REGION --resource-group $RESOURCE_GROUP --sku Standard_LRS --tags $TAG_PREFIX 
+az storage account create --name $STORAGE_ACCOUNT_FUNC --location $REGION --resource-group $RESOURCE_GROUP --sku Standard_LRS --tags $TAG_PREFIX 
+
+### Step 4A: Create Function App service (function app service is a placeholder for the event grid function, created in next steps)
 
 az functionapp create --name $FUNCTION_APPNAME  --storage-account $STORAGE_ACCOUNT_NAME \
 	--consumption-plan-location $REGION \
 	--resource-group $RESOURCE_GROUP --functions-version 2 --tags $TAG_PREFIX
 ````
 
-### Step 4B: Create HTTP Trigger 
-
-Navigate to the Azure portal, and the resource group created previously. Select the <tag-prefix-functionapp-nnnn> "Function App", navigate the file tree and select the 
-
-<img src="media/function.selector.PNG" > icon, and create a new "HTTP Trigger" Function, with a meaningful name, ie: "HelloHttpTrigger". 
-
-- Create HTTP trigger function
-	
-	<img src="media/createfunctionapp.http.PNG">
-
-- Code and Test function
-	
-	<img src="media/httptrigger.code.test.png">
-
 ## Step 5: Create Event Grid 
-Placeholder for content and and [links](..)
 
-````shell
+In this step, a blob storage account will be created, and then an event grid endpoint to the previously created Function App 
+- Create blob storage account
+- Create event grid to function app endpoint 
 
+### Step 5A: Create storage account for event grid, Azure Fuction and Event Grid
+
+````shell 
+# Create storage account and function app service 
+az storage account create --name $STORAGE_ACCOUNT_EVENT --location $REGION --resource-group $RESOURCE_GROUP --sku Standard_LRS --tags $TAG_PREFIX 
 ````
+
+**NOTE: Switch to the Azure Portal for the remaining steps in the execise.** 
+
+### Step 5B Create function to receive event grid events 
+
+Navigate the the resource group created previously, select the function app, and create a new function. 
+
+- Development Environment: **Develop in portal**
+- Template: **Azure Event Grid trigger** 
+- Template details, New Function: **EventGridTriggerFunction** 
+- Create
+
+
+Navigate within the function app and function to verify function is **Enabled** 
+
+ <img src="media/eventgrid.trigger.function.png"
+
+### Step 5C Create event grid topic and function to process blob storage events 
+
+Navigate to the resource group created previoulsy, select the **event grid storage sccount**, **Events** <img src="media/rg.select.events.png" > icon to create an event grid topic and link to the function app. 
+
+- Verify the **Topic Type** and **Source Resource* match the **stgevent....** resource created previously 
+- Select:  **Event Subscription** 
+- Name: **BlobEventGridToFunctionApp** 
+- Event Schema: **Event Grid Schema** 
+- System Topic Name: **BlobEventGridToFunctionAppTopic**
+- Event Types Filter: **default 2 selected, or as desired** 
+- Endpoint Type: **Azure Function** 
+- Endpoint: **select endpoint** (navigate and select the desired FunctionApp and Function 
+
+<img src="media/eventgrid.trigger.function.png"> 
 
 
 ## Step 6: Test and view results 
