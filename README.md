@@ -213,11 +213,11 @@ public static void Run(EventGridEvent eventGridEvent,  out  object outputDocumen
 
 ### Step 7: Azure Cosmos DB Output Binding Test 
 
-The next step is repeat of [Step 6](#step-6-event-grid-blob-storage-test) with an additional verification. Set up browswers as described previously, and upload a desired file into the **container 1**. 
+The next step is repeat of [Step 6](#step-6-event-grid-blob-storage-test) with an additional verification. Set up browsers as described previously, and upload a desired file into the **container 1**: 
 
 - Verify the **EventGridTriggerFunction** triggers successfully via the **Logs** 
-- Naviate to the Cosmos DB **Data Explorer**, select the **EventGridBlobStorageDb**, **Items** document. 
-- Verify the corresponding event id from the event grid trigger function 
+- Navigate to the Cosmos DB **Data Explorer**, select the **EventGridBlobStorageDb**, **Items** document
+- Verify the corresponding event id from the event grid trigger function matches and successive changes to the blob storage trigger updates to items in the Cosmos DB
 
 <img src="media/cosmos.container.event.action.png"> 
 
