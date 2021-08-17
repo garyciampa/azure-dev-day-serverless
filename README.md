@@ -43,8 +43,6 @@ export RESOURCE_GROUP=<$TAG_PREFIX-demo-azure-dev-day>
 export REGION=<eastus2>
 
 export COSMOSDB_ACCOUNT_NAME=${TAG_PREFIX}-cosmosdb-$RANDOM
-export COSMOSDB_SQL_CONTAINER=sql-container-$RANDOM
-export COSMOSDB_SQL_DATABASE=sql-database-$RANDOM
 
 export STORAGE_ACCOUNT_FUNC=stgfunc${TAG_PREFIX}${RANDOM}
 export STORAGE_ACCOUNT_EVENT=stgevent${TAG_PREFIX}${RANDOM}
@@ -103,7 +101,7 @@ In this step, a blob storage account will be created, and then an event grid end
 az storage account create --name $STORAGE_ACCOUNT_EVENT --location $REGION --resource-group $RESOURCE_GROUP --sku Standard_LRS --tags $TAG_PREFIX 
 ````
 
-**NOTE: Switch to the Azure Portal for the remaining steps in the execise.** 
+**NOTE: Switch to the Azure Portal for the remaining steps in the execise as indicated.** 
 
 ### Step 5B Create function to receive event grid events 
 
