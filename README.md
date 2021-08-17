@@ -42,7 +42,7 @@ export TAG_PREFIX=<business-unit>
 export RESOURCE_GROUP=<$TAG_PREFIX-demo-azure-dev-day>
 export REGION=<eastus2>
 
-export COSMOSDB_ACCOUNT_NAME=cosmosdb-$RANDOM
+export COSMOSDB_ACCOUNT_NAME=${TAG_PREFIX}-cosmosdb-$RANDOM
 export COSMOSDB_SQL_CONTAINER=sql-container-$RANDOM
 export COSMOSDB_SQL_DATABASE=sql-database-$RANDOM
 
@@ -163,29 +163,51 @@ Next step is to create an blob container, upload files and verify the event grid
 - Access level: **default** or **as desired** 
 - Create 
 
-Open a second browser sessions in the Azure Portal:
+Open a second browser session in the Azure Portal:
 - Session 1: Navigate to the newly created **Blob container1**
 - Session 2: Navigate to the Function App, **EventGridTriggerFunction**, and open the **Logs** menu, to view the function application log 
 - **Blob container**, select **Upload**, upload a favorite file, image or related media:
 
 <img src="media/azure.blob.container.upload.png"> 
 
--  **EventGridTriggerFunction**, observe for each image, the event grid will trigger an fuction instance, log will reflect the event grid trigger content: 
+-  **EventGridTriggerFunction**, observe for each image, the event grid will trigger an fuction instance, **Logs** will reflect the event grid trigger content: 
 
 <img src="media/function.app.eventgrid.trigger.png"> 
 
 
 ## Step 7: Azure Cosmos DB Output Binding
 
-Current status is the following have been created and ready for testing: 
+The next step in the modern application architecture is to push a record of the blob event grid action to **Cosmos DB** for subsequetn downstream processing. Adding Cosmos DB requires two steps: 
 
-- Azure Blob storage account 
-- Event Grid Topic for stoage account changes  
-- Function App to receive and log event
+- Adding an **Output Binding** to the **EventGridTriggerFunction**
+- Updating the  **EventGridTriggerFunction** function to emit the events into Cosmos DB 
 
-Placeholder for content and and [links](..)
+Navigate to the **EventGridTriggerFunction**, select **Integration** and **Add output**: 
+- Binding Type: **Azure Cosmos DB**
+- Document parameter name: **outputDocument** (case sensitive and must match the outputDocument property in the function 
+- Database name: **EventGridBlobStorageDb** (as desired)
+- Colleciton name: **Container1** (as desired) 
+- If true, ..: **Yes** 
+- Cosmos DB account connection: **select Cosmos DB account created earlier**  
+
+
+<img src="media/function.add.output.binding.png"> 
+
+
+**EventGridTriggerFunction\run.csx** with **outputDocument** set to emit to Cosmos DB output binding: 
 
 ````shell
+#r "Microsoft.Azure.EventGrid"
+using Microsoft.Azure.EventGrid.Models;
+
+
+[FunctionName("EventGridTrigger1")]
+public static void Run(EventGridEvent eventGridEvent,  out  object outputDocument, ILogger log)
+{
+    log.LogInformation(eventGridEvent.Data.ToString());
+    outputDocument = eventGridEvent.Data; 
+
+}
 
 ````
 
