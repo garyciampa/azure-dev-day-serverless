@@ -85,10 +85,17 @@ az functionapp create --name $FUNCTION_APPNAME  --storage-account $STORAGE_ACCOU
 
 ### Step 4B: Create HTTP Trigger 
 
-Navigate to the Azure portal, and the resource group created previously. Select the <tag-prefix-functionapp-nnnn> "Function App", navigate the file tree and selct the 
-<img src="media/functionselector.png" width=75 height=50> icon, and create a new "HTTP Trigger" Function, with a meaningful name, ie: "HelloHttpFunction". 
+Navigate to the Azure portal, and the resource group created previously. Select the <tag-prefix-functionapp-nnnn> "Function App", navigate the file tree and select the 
 
-<img src="media/createfunctionapp.http.png" width=200 height=250px>
+<img src="media/function.selector.PNG" > icon, and create a new "HTTP Trigger" Function, with a meaningful name, ie: "HelloHttpTrigger". 
+
+- Create HTTP trigger function
+	
+	<img src="media/createfunctionapp.http.PNG">
+
+- Code and Test function
+	
+	<img src="media/httptrigger.code.test.png">
 
 ## Step 5: Create Event Grid 
 Placeholder for content and and [links](..)
