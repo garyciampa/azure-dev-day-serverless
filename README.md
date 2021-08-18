@@ -102,7 +102,7 @@ In this step, a Storage Account will be created, and then an Event Grid System T
 - Create a Storage Account
 - Bund an Event Grid System Topic to a Function App 
 
-### Step 5A: Create Storage Account for Event Grid, Azure Fuction and Event Grid
+### Step 5.a: Create Storage Account for Event Grid, Azure Fuction and Event Grid
 
 ````shell 
 # Create storage account and function app service 
@@ -111,7 +111,7 @@ az storage account create --name $STORAGE_ACCOUNT_EVENT --location $REGION --res
 
 **NOTE: Switch to the Azure Portal for the remaining steps in the execise as indicated.** 
 
-### Step 5B Create a Function to receive Event Grid events 
+### Step 5.b Create a Function to receive Event Grid events 
 
 Navigate to the Resource Group created previously, select the Function App, and create a new Function. 
 
@@ -124,7 +124,17 @@ Navigate within the function app, verify function is **Enabled**
 
  <img src="media/eventgrid.trigger.function.png">
 
-### Step 5C: Create Event Grid System Topic and Function to process blob storage events 
+### Step 5.c: Ensure the Azure subscription has **Registered** the Microsoft.EventGrid *resource provider** 
+
+- Navigate in the Azure portal to the **Subscription**
+- Select the **Settings->Resource providers**
+- Filter on **EventGrid** 
+- **Verify** or **Check** to **Status=Registed**
+
+<img src="media/sub.eventgrid.registered.png">
+
+##
+### Step 5.d: Create Event Grid System Topic and Function to process blob storage events 
 
 Navigate to the Resource Group created previously, select the **Event Grid Storage Account**, **Events** <img src="media/rg.events.select.png" > icon to create an Event Grid System Topic and link it to the Function App. 
 
