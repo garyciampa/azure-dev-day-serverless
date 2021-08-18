@@ -125,7 +125,7 @@ Navigate within the function app, verify function is **Enabled**
 
  <img src="media/eventgrid.trigger.function.png">
 
-### Step 5.c: Ensure the Azure subscription has **Registered** the Microsoft.EventGrid *resource provider** 
+### Step 5.c: Ensure the Azure subscription has **Registered** the *Microsoft.EventGrid resource provider* 
 
 - Navigate in the Azure portal to the **Subscription**
 - Select the **Settings->Resource providers**
