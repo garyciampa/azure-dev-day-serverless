@@ -129,7 +129,7 @@ Navigate within the function app, verify function is **Enabled**
 - Navigate in the Azure portal to the **Subscription**
 - Select the **Settings->Resource providers**
 - Filter on **EventGrid** 
-- **Verify** or **Check** to **Status=Registed**
+- **Verify** or **Check**: **Status=Registed**
 
 <img src="media/sub.eventgrid.registered.png">
 
