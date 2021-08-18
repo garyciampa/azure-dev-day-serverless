@@ -41,11 +41,10 @@ export SUBSCRIPTION_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 az login 
 az account set --subscription $SUBSCRIPTION_ID
 ````
-## Set variable properties for substitution 
-
+## Set variable properties for substitution, use an [Azure Tag](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json#azure-cli) property for uniqueness.
 
 ````shell
-# <business-unit> is well-known or unique attribute to distrinquish among organizational resources, perhaps for billing, dev, test prod, locales, etc. 
+# <business-unit> is well-known or unique attribute to distinquish among organizational resources, perhaps for billing, dev, test prod, locales, etc. 
 export TAG_PREFIX=<business-unit>
 
 export RESOURCE_GROUP=<$TAG_PREFIX-demo-azure-dev-day>
