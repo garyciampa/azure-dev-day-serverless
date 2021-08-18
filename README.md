@@ -195,10 +195,11 @@ Open a second browser session in the Azure Portal:
 
 The next step in the application architecture is to push a document representing the Event Grid event to **Cosmos DB** for subsequent downstream processing. Adding Cosmos DB requires two steps: 
 
-### Step 7.a: Azure Cosmos DB Output Binding
 
 - Adding an **Output Binding** to the **EventGridTriggerFunction**
 - Updating the  **EventGridTriggerFunction** function to emit the events into Cosmos DB 
+
+### Step 7.a: Azure Cosmos DB Output Binding
 
 Navigate to the **EventGridTriggerFunction**, select **Integration** and **Add output**: 
 - Binding Type: **Azure Cosmos DB**
@@ -211,8 +212,9 @@ Navigate to the **EventGridTriggerFunction**, select **Integration** and **Add o
 
 <img src="media/function.add.output.binding.png"> 
 
+## 
 
-## Step 7.b: Update Azure Function to emit document event to CosmosDB binding
+### Step 7.b: Update Azure Function to emit document event to CosmosDB binding
 
 **EventGridTriggerFunction\run.csx** with **outputDocument** set to emit to Cosmos DB output binding: 
 
