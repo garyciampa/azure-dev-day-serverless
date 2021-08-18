@@ -17,9 +17,9 @@
 
 ## Objectives 
 
-Azure Serverless capabilites provide a wide array of capabilites to drive modern application architectures with zero-infrastructure and capital evestments. This lab demonstrates Azure PaaS offerings including 
+Azure Serverless offerings provide a wide array of capabilites to drive modern application architectures with zero-infrastructure and capital investments. This lab demonstrates Azure PaaS offerings including 
 
-- Azure Event Grids
+- Azure Event Grid
 - Azure Function Apps 
 - Azure Cosmos DB 
 - Azure infrastructure services to include resource groups, storage accounts and familiarization with Azure CLI services
@@ -58,7 +58,7 @@ export STORAGE_ACCOUNT_EVENT=stgevent${TAG_PREFIX}${RANDOM}
 export FUNCTION_APPNAME=${TAG_PREFIX}-functionapp-${RANDOM}
 ````
 
-NOTE: The region location of the resource group may be different than the physical azure resources 
+NOTE: The region location of the Resource Group may be different than the Azure resources 
 
 ## Step 2: Create an Azure Resource Group 
 
@@ -81,9 +81,9 @@ az cosmosdb create --name $COSMOSDB_ACCOUNT_NAME --resource-group $RESOURCE_GROU
 <img src="media/Function-Apps.svg" width=75 height=75px>
 
 
-### Step 4A: Create storage account function app
+### Step 4A: Create Storage Account and Function App
 
-Creating a storage account and function app via the [Azure Portal](https://portal.azure.com), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-serverless).
+Creating a Storage Account and Function App via the [Azure Portal](https://portal.azure.com), or via the [Azure CLI](https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-serverless).
 
 ````shell 
 # Create storage account and function app service 
@@ -98,11 +98,11 @@ az functionapp create --name $FUNCTION_APPNAME  --storage-account $STORAGE_ACCOU
 
 ## Step 5: Create Event Grid 
 
-In this step, a blob storage account will be created, and then an event grid endpoint to the previously created Function App 
-- Create blob storage account
-- Create event grid to function app endpoint 
+In this step, a Storage Account will be created, and then an Event Grid System Topic to the previously created Function App 
+- Create a Storage Account
+- Bund an Event Grid System Topic to a Function App 
 
-### Step 5A: Create storage account for event grid, Azure Fuction and Event Grid
+### Step 5A: Create Storage Account for Event Grid, Azure Fuction and Event Grid
 
 ````shell 
 # Create storage account and function app service 
@@ -111,9 +111,9 @@ az storage account create --name $STORAGE_ACCOUNT_EVENT --location $REGION --res
 
 **NOTE: Switch to the Azure Portal for the remaining steps in the execise as indicated.** 
 
-### Step 5B Create function to receive event grid events 
+### Step 5B Create a Function to receive Event Grid events 
 
-Navigate the the resource group created previously, select the function app, and create a new function. 
+Navigate to the Resource Group created previously, select the Function App, and create a new Function. 
 
 - Development Environment: **Develop in portal**
 - Template: **Azure Event Grid trigger** 
@@ -124,9 +124,9 @@ Navigate within the function app, verify function is **Enabled**
 
  <img src="media/eventgrid.trigger.function.png">
 
-### Step 5C: Create event grid topic and function to process blob storage events 
+### Step 5C: Create Event Grid System Topic and Function to process blob storage events 
 
-Navigate to the resource group created previously, select the **event grid storage account**, **Events** <img src="media/rg.select.events.png" > icon to create an event grid topic and link to the function app. 
+Navigate to the Resource Group created previously, select the **Event Grid Storage Account**, **Events** <img src="media/rg.select.events.png" > icon to create an Event Grid System Topic and link it to the Function App. 
 
 - Verify the **Topic Type** and **Source Resource* match the **stgevent....** resource created previously 
 - Select:  **Event Subscription** 
@@ -161,7 +161,7 @@ Current status is the following have been created and ready for testing:
 - Event Grid Topic for stoage account changes  
 - Function App to receive and log events 
 
-Next step is to create an blob container, upload files and verify the event grid triggers in the function app 
+Next step is to create an blob container, upload files and verify the Event Grid System Topic triggers the Function App 
 
 - Navigate to the storage accouint
 - Select: **Blob containers**, **+ Add Container**
@@ -171,19 +171,19 @@ Next step is to create an blob container, upload files and verify the event grid
 
 Open a second browser session in the Azure Portal:
 - Session 1: Navigate to the newly created **Blob container1**
-- Session 2: Navigate to the Function App, **EventGridTriggerFunction**, and open the **Logs** menu, to view the function application log 
+- Session 2: Navigate to the Function App, **EventGridTriggerFunction**, and open the **Logs** menu, to view the Function logs 
 - **Blob container**, select **Upload**, upload a favorite file, image or related media:
 
 <img src="media/azure.blob.container.upload.png"> 
 
--  **EventGridTriggerFunction**, observe for each image, the event grid will trigger an fuction instance, **Logs** will reflect the event grid trigger content: 
+-  **EventGridTriggerFunction**, observe for each image, Event Grid will trigger the Fuction, **Logs** will reflect the Event Grid trigger content: 
 
 <img src="media/function.app.eventgrid.trigger.png"> 
 
 
 ## Step 7: Azure Cosmos DB Output Binding
 
-The next step in the modern application architecture is to push a record of the blob event grid action to **Cosmos DB** for subsequetn downstream processing. Adding Cosmos DB requires two steps: 
+The next step in the application architecture is to push a document representing the Event Grid event to **Cosmos DB** for subsequent downstream processing. Adding Cosmos DB requires two steps: 
 
 - Adding an **Output Binding** to the **EventGridTriggerFunction**
 - Updating the  **EventGridTriggerFunction** function to emit the events into Cosmos DB 
@@ -227,7 +227,7 @@ The next step is repeat of [Step 6](#step-6-event-grid-blob-storage-test) with a
 
 <img src="media/cosmos.container.event.action.png"> 
 
-The previous example demonstrates the relationship and services to connect Azure Event Grids, to Azure Functions, to Azure Cosmos DB to complete a modern application architecture strategy in an **Azure Server-less architecture** 
+The previous example demonstrates the relationship and services to connect Azure Event Grid to Azure Functions and then persist data in Azure Cosmos DB for an example of an event-driven architecture using **Azure Serverless offerings** 
 
 
 ## Step 8: Clean up resources 
