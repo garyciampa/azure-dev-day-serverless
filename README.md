@@ -45,6 +45,7 @@ az account set --subscription $SUBSCRIPTION_ID
 
 
 ````shell
+# <business-unit> is well-known or unique attribute to distrinquish among organizational resources, perhaps for billing, dev, test prod, locales, etc. 
 export TAG_PREFIX=<business-unit>
 
 export RESOURCE_GROUP=<$TAG_PREFIX-demo-azure-dev-day>
