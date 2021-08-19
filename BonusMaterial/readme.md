@@ -1,4 +1,4 @@
-# Azure Function Apps on Kubernetes with Keda 
+# Azure Function Apps on Kubernetes with KEDA 
 
 <!-- TOC -->
 **Overview**: 
