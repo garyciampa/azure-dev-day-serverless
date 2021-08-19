@@ -24,6 +24,8 @@ Azure Serverless offerings provide a wide array of capabilites to drive modern a
 - Azure Cosmos DB 
 - Azure infrastructure services to include resource groups, storage accounts and familiarization with Azure CLI services
 
+**NOTE: This exercise is a section of a day-long presentation on Azure App Innovation, the complete workshop may be found [here](https://aka.ms/azuredevdaylabs).**
+
 ## Requirements
 
 This example assumes the user already has an Azure subscription with contributor access. Additionally, the following services will be required during the lab: 
