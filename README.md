@@ -17,7 +17,7 @@
 
 ## Objectives 
 
-Azure Serverless offerings provide a wide array of capabilites to drive modern application architectures with zero-infrastructure and capital investments. This lab demonstrates Azure PaaS offerings including 
+Azure Serverless offerings provide a wide array of capabilites to drive modern application architectures with zero-infrastructure and capital investments. This lab demonstrates Azure PaaS offerings including: 
 
 - Azure Event Grid
 - Azure Function Apps 
@@ -131,7 +131,7 @@ Navigate within the function app, verify function is **Enabled**
 - Navigate in the Azure portal to the **Subscription**
 - Select the **Settings->Resource providers**
 - Filter on **EventGrid** 
-- **Verify** or **Check**: **Status=Registed**
+- **Verify** or **Check**: **Status=Registered**
 
 <img src="media/sub.eventgrid.registered.png">
 
