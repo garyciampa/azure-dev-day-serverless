@@ -140,7 +140,7 @@ Navigate within the function app, verify function is **Enabled**
 
 Navigate to the Resource Group created previously, select the **Event Grid Storage Account**, **Events** <img src="media/rg.events.select.png" > icon to create an Event Grid System Topic and link it to the Function App. 
 
-- Verify the **Topic Type** and **Source Resource* match the **stgevent....** resource created previously 
+- Verify the **Topic Type** and **Source Resource** match the **stgevent....** resource created previously 
 - Select:  **Event Subscription** 
 - Name: **BlobEventGridToFunctionApp** 
 - Event Schema: **Event Grid Schema** 
