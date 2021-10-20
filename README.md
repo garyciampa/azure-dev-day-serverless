@@ -153,7 +153,7 @@ Navigate to the Resource Group created previously, select the **Event Grid Stora
 
 <img src="media/eventgrid.function.endpoint.png"> 
 
-Navigate to the Resource Group created previously, select the **Function App** -> Functions -> Select the function -> Code and + Test: . 
+Navigate to the Resource Group created previously, select the **Function App** -> **Functions** -> Select the **Function Name** -> **Code and + Test**: . 
 
 - Verify the **Topic Type** and **Source Resource** match the **stgevent....** resource created previously 
 
