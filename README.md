@@ -108,7 +108,7 @@ In this step, a Storage Account will be created, and then an Event Grid System T
 ### Step 5.a: Create Storage Account for Event Grid, Azure Fuction and Event Grid
 
 ````shell 
-# Create storage account and function app service 
+# Create storage account and Event Grid Service 
 az storage account create --name $STORAGE_ACCOUNT_EVENT --location $REGION --resource-group $RESOURCE_GROUP --sku Standard_LRS --tags $TAG_PREFIX 
 ````
 
