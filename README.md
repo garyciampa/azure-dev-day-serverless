@@ -103,7 +103,7 @@ az functionapp create --name $FUNCTION_APPNAME  --storage-account $STORAGE_ACCOU
 
 In this step, a Storage Account will be created, and then an Event Grid System Topic to the previously created Function App 
 - Create a Storage Account
-- Bund an Event Grid System Topic to a Function App 
+- Bind an Event Grid System Topic to a Function App 
 
 ### Step 5.a: Create Storage Account for Event Grid, Azure Fuction and Event Grid
 
