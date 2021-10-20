@@ -94,7 +94,7 @@ az storage account create --name $STORAGE_ACCOUNT_FUNC --location $REGION --reso
 
 ### Step 4A: Create Function App service (function app service is a placeholder for the event grid function, created in next steps)
 
-az functionapp create --name $FUNCTION_APPNAME  --storage-account $STORAGE_ACCOUNT_NAME \
+az functionapp create --name $FUNCTION_APPNAME  --storage-account $STORAGE_ACCOUNT_FUNC \
 	--consumption-plan-location $REGION \
 	--resource-group $RESOURCE_GROUP --functions-version 2 --tags $TAG_PREFIX
 ````
