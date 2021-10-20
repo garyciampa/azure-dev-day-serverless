@@ -140,7 +140,7 @@ Navigate within the function app, verify function is **Enabled**
 ##
 ### Step 5.d: Create Event Grid System Topic and Function to process blob storage events 
 
-Navigate to the Resource Group created previously, select the **Event Grid Storage Account**, **Events** <img src="media/rg.events.select.png" > icon to create an Event Grid System Topic and link it to the Function App. 
+Navigate to the Resource Group created previously, select the **Event Grid Storage Account**, **Events** <img src="media/rg.events.select.png" > icon and **Create** an **Event Subscription**, link it to the Function App. 
 
 - Verify the **Topic Type** and **Source Resource** match the **stgevent....** resource created previously 
 - Select:  **Event Subscription** 
