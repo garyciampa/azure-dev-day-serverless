@@ -150,7 +150,7 @@ Navigate to the Resource Group created previously, select the **Event Grid Stora
 - Event Types Filter: **default 2 selected, or as desired** 
 - Endpoint Type: **Azure Function** 
 - Endpoint: **select endpoint** (navigate and select the desired FunctionApp and select the default **Function Name**  
-- **Create**, a Function will **automatically* be created to process the **Event Grid** trigger
+- **Create**, a Function will **automatically** be created to process the **Event Grid** trigger
 
 <img src="media/eventgrid.function.endpoint.png"> 
 
