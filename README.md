@@ -153,8 +153,12 @@ Navigate to the Resource Group created previously, select the **Event Grid Stora
 
 <img src="media/eventgrid.function.endpoint.png"> 
 
+Navigate to the Resource Group created previously, select the **Function App** -> Functions -> Select the function -> Code and + Test: . 
 
-**EventGridTriggerFunction\run.csx** will be created with the following properties: 
+- Verify the **Topic Type** and **Source Resource** match the **stgevent....** resource created previously 
+
+
+**{EventGridTriggerFunction}\run.csx** contains the following properties: 
 
 ````shell
 #r "Microsoft.Azure.EventGrid"
