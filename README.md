@@ -207,7 +207,7 @@ The next step in the application architecture is to push a document representing
 ### Step 7.a: Azure Cosmos DB Output Binding
 
 Navigate to the **EventGridTriggerFunction**, select **Integration** and **Add output**: 
-- Binding Type: **Azure Cosmos DB**, select **New**, **Cosmos DB account conneciton**, and link to Cosmos DB account created earlier in the resource group
+- Binding Type: **Azure Cosmos DB**, select **New**, **Cosmos DB account connection**, and link to Cosmos DB account created earlier in the resource group
 - Document parameter name: **outputDocument** (case sensitive and must match the outputDocument property in the function 
 - Database name: **EventGridBlobStorageDb** (as desired)
 - Colleciton name: **Container1** (as desired) 
