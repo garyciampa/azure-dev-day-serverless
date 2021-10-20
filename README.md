@@ -55,6 +55,7 @@ export REGION=<eastus2>
 
 export COSMOSDB_ACCOUNT_NAME=${TAG_PREFIX}-cosmosdb-$RANDOM
 
+# Azure storage account names must be <= 24 characters
 export STORAGE_ACCOUNT_FUNC=stgfunc${TAG_PREFIX}${RANDOM}
 export STORAGE_ACCOUNT_EVENT=stgevent${TAG_PREFIX}${RANDOM}
 
@@ -108,7 +109,7 @@ In this step, a Storage Account will be created, and then an Event Grid System T
 ### Step 5.a: Create Storage Account for Event Grid, Azure Fuction and Event Grid
 
 ````shell 
-# Create storage account and Event Grid Service 
+# Create storage account for Event Grid Service 
 az storage account create --name $STORAGE_ACCOUNT_EVENT --location $REGION --resource-group $RESOURCE_GROUP --sku Standard_LRS --tags $TAG_PREFIX 
 ````
 
