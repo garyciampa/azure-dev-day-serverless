@@ -1,0 +1,32 @@
+name: manage-azure-policy-6bcb1e92
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'Policy/policies/There_should_be_more_than_one_owner_assigned_to_your_subscription_09024ccc-0c5f-475e-9457-b7c0d9ed487b/**'
+#      - .github/workflows/manage-azure-policy-6bcb1e92.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_6bcb1e92}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          Policy/policies/There_should_be_more_than_one_owner_assigned_to_your_subscription_09024ccc-0c5f-475e-9457-b7c0d9ed487b/**
